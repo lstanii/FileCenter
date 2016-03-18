@@ -1,0 +1,29 @@
+{
+  "name": "FileCenter",
+  "version": "1.0.0",
+  "license": {
+    "type": "Apache 2.0"
+  },
+  "summary": "An iOS framework for easy saving and retrieving files on a device.",
+  "description": "Use FileCenter to easily save, delete and access files on iOS devices. Elegantly create directories, save, read and download files!",
+  "homepage": "http://www.rebelcreators.com",
+  "authors": {
+    "Rebel Creators.": "lstanii@nmsu.edu"
+  },
+  "source": {
+    "git": "https://github.com/lstanii/FileCenter.git",
+    "tag": "tag-filecenter-release-1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "src/**/*.swift",
+  "frameworks": "Foundation",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
+    "OTHER_LDFLAGS": "-ObjC",
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+    "ENABLE_BITCODE": "NO"
+  }
+}

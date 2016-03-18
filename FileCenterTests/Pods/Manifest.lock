@@ -1,0 +1,14 @@
+PODS:
+  - FileCenter (1.0.0)
+
+DEPENDENCIES:
+  - FileCenter (from `../`)
+
+EXTERNAL SOURCES:
+  FileCenter:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FileCenter: 8960541b0c4ec1731ea4bacb6b090ab16d5dc401
+
+COCOAPODS: 0.38.2
