@@ -131,6 +131,10 @@ public class FileCenterObject : NSObject {
         return FileCenter.fileManager.isDeletableFileAtPath(buildPath(self))
     }
     
+    public func name() -> String {
+        return path
+    }
+    
     public func url() -> NSURL? {
         return NSURL(string: buildRelativePath(self))
     }
