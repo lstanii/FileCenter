@@ -25,7 +25,7 @@ public class FileCenterObject : NSObject {
     //MARK: Private Properties
     
     
-    internal var path : String
+    private var path : String
     
     
     //MARK: Public Properties
