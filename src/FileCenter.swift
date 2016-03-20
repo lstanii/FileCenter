@@ -29,6 +29,13 @@ public class FileCenter {
     public static let defaultCenter = FileCenter()
     public static let fileManager = NSFileManager.defaultManager()
     public static let separator = "/"
+    public static var sharedCache : NSCache? = NSCache()
+    
+    
+    //MARK: Internal Properties
+    
+    
+    internal static var enableCaching = true
     
     
     //MARK: Public Methods
@@ -56,6 +63,14 @@ public class FileCenter {
     
     //MARK: Public Static Methods
     
+    
+    public static func disableCachingInBlock(block : (() -> Void)) {
+        objc_sync_enter(enableCaching)
+        enableCaching = false
+        block()
+        enableCaching = true
+        objc_sync_exit(enableCaching)
+    }
     
     public static func performInBackground(block : (() -> Void), completion : (() -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
