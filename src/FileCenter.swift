@@ -34,6 +34,19 @@ public class FileCenter {
     //MARK: Public Methods
     
     
+    public func performInBackground(block : (() -> Void), completion : (() -> Void)) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+            block()
+            dispatch_async(dispatch_get_main_queue(), {
+                completion()
+            })
+        })
+    }
+    
+    
+    //MARK: Base Directories
+    
+    
     public func documents() -> BaseFolder {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         

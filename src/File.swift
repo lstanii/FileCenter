@@ -46,7 +46,7 @@ public class File : FileCenterObject {
         return FileCenter.fileManager.contentsAtPath(buildPath(self))
     }
     
-    public override func rename( name : String) -> Bool {
+    public override func rename(name : String) -> Bool {
         if let newURL = self.containingFolder?.file(name).fullURL(), let url = self.fullURL() {
             do {
                 try FileCenter.fileManager.moveItemAtURL(url, toURL: newURL)
