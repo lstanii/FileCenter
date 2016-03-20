@@ -55,4 +55,17 @@ public class Folder : FileCenterObject {
             return []
         }
     }
+    
+    public override func rename( name : String) -> Bool {
+        if let newURL = self.containingFolder?.folder(name).fullURL(), let url = self.fullURL() {
+            do {
+                try FileCenter.fileManager.moveItemAtURL(url, toURL: newURL)
+                return true
+            } catch {
+                return false
+            }
+        }
+        
+        return false
+    }
 }

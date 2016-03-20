@@ -25,7 +25,7 @@ public class FileCenterObject : NSObject {
     //MARK: Private Properties
     
     
-    private var path : String
+    internal var path : String
     
     
     //MARK: Public Properties
@@ -127,6 +127,10 @@ public class FileCenterObject : NSObject {
         return FileCenter.fileManager.fileExistsAtPath(buildPath(self))
     }
     
+    public func fullURL() -> NSURL? {
+        return NSURL(string: buildPath(self))
+    }
+    
     public func isDeletable() -> Bool {
         return FileCenter.fileManager.isDeletableFileAtPath(buildPath(self))
     }
@@ -139,7 +143,7 @@ public class FileCenterObject : NSObject {
         return NSURL(string: buildRelativePath(self))
     }
     
-    public func fullURL() -> NSURL? {
-        return NSURL(string: buildPath(self))
+    public func rename( name : String) -> Bool {
+        return false
     }
 }

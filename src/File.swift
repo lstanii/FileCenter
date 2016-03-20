@@ -26,12 +26,37 @@ public class File : FileCenterObject {
     //MARK: Public Methods
     
     
+    public func append(data : NSData) -> Bool {
+        guard let fileHandle = NSFileHandle(forWritingAtPath: buildPath(self)) else {
+            return false
+        }
+        
+        fileHandle.seekToEndOfFile()
+        fileHandle.writeData(data)
+        fileHandle.closeFile()
+        
+        return true
+    }
+    
     public func downloadable(url : NSURL) -> Downloadable {
         return Downloadable(file: self, url: url)
     }
     
     public func fetch() -> NSData? {
         return FileCenter.fileManager.contentsAtPath(buildPath(self))
+    }
+    
+    public override func rename( name : String) -> Bool {
+        if let newURL = self.containingFolder?.file(name).fullURL(), let url = self.fullURL() {
+            do {
+                try FileCenter.fileManager.moveItemAtURL(url, toURL: newURL)
+                return true
+            } catch {
+                return false
+            }
+        }
+        
+        return false
     }
     
     public func save(data : NSData) -> Bool {
