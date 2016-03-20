@@ -44,7 +44,7 @@ public class File : FileCenterObject {
     
     public func fetch() -> NSData? {
         if FileCenter.enableCaching {
-            if let data = FileCenter.sharedCache.objectForKey(buildPath(self)) as? NSData {
+            if let data = FileCenter.sharedCache?.objectForKey(buildPath(self)) as? NSData {
                 return data
             }
         }
@@ -68,7 +68,7 @@ public class File : FileCenterObject {
     public func save(data : NSData) -> Bool {
         if save(data, createPathIfNeeded: true) {
             if FileCenter.enableCaching {
-                FileCenter.sharedCache.setObject(data, forKey: buildPath(self))
+                FileCenter.sharedCache?.setObject(data, forKey: buildPath(self))
             }
             return true
         }
