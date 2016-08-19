@@ -5,6 +5,8 @@ It uses a fluent design to specify file and folder structure. Folders do not hav
 
 The FileCenter Class is the main class for the File Center API. File Center provides easy access to the following base directories. The file center class can be extend to provide more base directories on top of, or in a addition to these base directories. Standard iOS rules apply to this directorys(i.e in regard to the library, documents and temp directory and how they are handled)
 
+See https://github.com/lstanii/whatsupdocs for example app that uses FileCenter. The App allows you to create and view folders and text files.
+
 *  **FileCenter.library()**
  
 *  **FileCenter.documents()**
