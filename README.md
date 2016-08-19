@@ -59,6 +59,13 @@ Renaming files or folders
         
 ```
 
+Getting parent folder
+```
+let folder = FileCenter.documents().folder("images").folder("subImages2").folder("subImages3")
+let containingFolder = folder.containingFolder
+
+```
+
 Delete a file or folder
 ```
 let file = FileCenter.documents().folder("images").folder("profileImages").file("image.jpg")
