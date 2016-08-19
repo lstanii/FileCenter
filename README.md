@@ -17,9 +17,18 @@ See https://github.com/lstanii/whatsupdocs for example app that uses FileCenter.
 ####Examples:
 Saving a file
 ```
+let jpgImageData: NSData = ...
 let success = FileCenter.documents().folder("images").folder("profileImages").file("image.jpg").save(jpgImageData)
 
 ```
+
+Appending Data to a file
+```
+let textStringData: NSData = ...
+let success = FileCenter.documents().folder("files").folder("userTextFiles").file("textFile.txt").append(textStringData)
+
+```
+
 Check if file exists
 ```
 let exists = FileCenter.documents().folder("images").folder("profileImages").file("image.jpg").exists()
