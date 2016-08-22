@@ -13,7 +13,20 @@ See https://github.com/lstanii/whatsupdocs for example app that uses FileCenter.
  
 *  **FileCenter.temp()**
 
-        
+##Installation
+**Cocoapods**
+```
+#podfile
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/lstanii/SpecRepo.git'
+
+inhibit_all_warnings!
+
+use_frameworks!
+pod 'FileCenter'
+
+```
+
 ####Examples:
 Saving a file
 ```
